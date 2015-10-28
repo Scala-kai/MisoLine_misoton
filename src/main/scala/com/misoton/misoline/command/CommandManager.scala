@@ -34,16 +34,16 @@ object CommandManager {
 
   private def readCommand(name: String): Command = {
     name match {
-      case CMD_TEST     => new HelpCommand
-      case CMD_CREATE   => new CreateCommand
-      case CMD_FRIENDS  => new FriendsListCommand
-      case CMD_FOLLOW   => new FollowFriendCommand
-      case CMD_MESSAGE  => new MessageCommand
-      case CMD_SHOW     => new ShowCommand
-      case CMD_CHECKOUT => new CheckoutCommand
-      case CMD_USERS    => new UsersCommand
-      case CMD_EXIT     => new ExitCommand
-      case _            => new UndefinedCommand
+      case CMD_TEST     => HelpCommand
+      case CMD_CREATE   => CreateCommand
+      case CMD_FRIENDS  => FriendsListCommand
+      case CMD_FOLLOW   => FollowFriendCommand
+      case CMD_MESSAGE  => MessageCommand
+      case CMD_SHOW     => ShowCommand
+      case CMD_CHECKOUT => CheckoutCommand
+      case CMD_USERS    => UsersCommand
+      case CMD_EXIT     => ExitCommand
+      case _            => UndefinedCommand
     }
   }
 }

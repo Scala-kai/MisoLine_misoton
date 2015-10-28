@@ -1,6 +1,6 @@
 package com.misoton.misoline.command
 
-class ExitCommand extends Command {
+case object ExitCommand extends Command {
   val ARG_SIZE = 0
 
   override def run(args: List[String]): CommandResult = {

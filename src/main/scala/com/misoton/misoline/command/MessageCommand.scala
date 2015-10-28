@@ -2,7 +2,7 @@ package com.misoton.misoline.command
 
 import com.misoton.misoline.data.{Message, ApplicationData}
 
-class MessageCommand extends Command{
+case object MessageCommand extends Command{
   val ARG_SIZE = 2
 
   override def run(args: List[String]): CommandResult = {

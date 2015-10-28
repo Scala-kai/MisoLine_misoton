@@ -2,7 +2,7 @@ package com.misoton.misoline.command
 
 import com.misoton.misoline.data.ApplicationData
 
-class FollowFriendCommand extends Command {
+case object FollowFriendCommand extends Command {
   private val ARG_SIZE = 2
 
   private val MODE_PHONE = "phone"

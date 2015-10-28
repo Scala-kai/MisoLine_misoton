@@ -2,7 +2,7 @@ package com.misoton.misoline.command
 
 import com.misoton.misoline.data.ApplicationData
 
-class FriendsListCommand extends Command {
+case object FriendsListCommand extends Command {
   override def run(args: List[String]): CommandResult = {
 
     val you = ApplicationData.getCurrentUser
