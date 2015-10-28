@@ -1,0 +1,8 @@
+2015-10-29_02:10:32 [INFORMATION] CommandManager Call undefined command as command. by _
+2015-10-29_02:10:35 [INFORMATION] CommandManager Call undefined command as unko. by _
+2015-10-29_02:10:39 [INFORMATION] CommandManager Call undefined command as medir. by _
+2015-10-29_02:10:57 [INFORMATION] CommandManager Create User as ID: a NAME: a PHONE: a EMAIL: a. by a
+2015-10-29_02:11:01 [INFORMATION] CommandManager Create User as ID: q NAME: q PHONE: q EMAIL: q. by q
+2015-10-29_02:11:09 [INFORMATION] CommandManager Follow a. by q
+2015-10-29_02:11:15 [INFORMATION] CommandManager Show messages between q and a. by q
+2015-10-29_02:11:18 [INFORMATION] CommandManager Show messages between q and a. by q
