@@ -16,7 +16,7 @@ object CommandManager {
   val CMD_EXIT     = "exit"
 
   def runCommand(commandStr: String): Boolean = {
-    val args: List[String] = commandStr.split(" ").toList
+    val args: List[String] = commandStr.split(" ").filter(_ != "").toList
     val command = readCommand(args.head)
     val result = command.run(args)
 
