@@ -10,20 +10,24 @@ case object CreateCommand extends Command {
       return CommandResult(CommandResult.ERR, "create [id] [name] [phone] [email]: Create new user as having parameters.")
     }
 
-    val id    = args(1)
-    val name  = args(2)
+    val id = args(1)
+    val name = args(2)
     val phone = args(3)
     val email = args(4)
 
     val newUser = User(id, name, phone, email)
 
-    ApplicationData.addUser(newUser)
+    val isCreated = ApplicationData.addUser(newUser)
+    if (!isCreated) {
+      return CommandResult(CommandResult.ERR, "Invalid value with phone number or email address.")
+    }
+
     ApplicationData.checkoutUser(newUser)
 
     val allUser = ApplicationData.getUserData
 
     println("** User List **")
-    for(user <- allUser){
+    for (user <- allUser) {
       println(user.name)
     }
 

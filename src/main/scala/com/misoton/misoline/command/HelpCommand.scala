@@ -7,7 +7,7 @@ case object HelpCommand extends Command{
     println("create [id] [name] [phone] [email]: Create new user as having parameters.\n" +
             "checkout [id]                     : Checkout User have [id]\n" +
             "exit                              : Exit from the MisoLine.\n" +
-            "follow (phone|email) [param]      : Follow user by phone number or email address.\n" +
+            "follow [phone or email]           : Follow user by phone number or email address.\n" +
             "friends                           : Show your(was check outed) friends.\n" +
             "help                              : ME!\n" +
             "message [id] [body]               : Send message [body] to [to].\n" +

@@ -30,8 +30,12 @@ object ApplicationData {
     talkData = talk +: talkData
   }
 
-  def addUser(user: User): Unit = {
+  def addUser(user: User): Boolean = {
+    if (!user.isRightUser) return false
+
     userData = user +: userData
+    true
+
   }
 
   def checkoutUser(user: User): Boolean = {

@@ -1,27 +1,26 @@
 package com.misoton.misoline.command
 
-import com.misoton.misoline.data.ApplicationData
+import com.misoton.misoline.data.{ApplicationData, User}
 
 case object FollowFriendCommand extends Command {
-  private val ARG_SIZE = 2
-
-  private val MODE_PHONE = "phone"
-  private val MODE_EMAIL = "email"
+  private val ARG_SIZE = 1
 
   override def run(args: List[String]): CommandResult = {
     if (args.size < ARG_SIZE + 1) {
-      return CommandResult(CommandResult.ERR, "follow (phone|email) [param] : Follow user by phone number or email address.")
+      return CommandResult(CommandResult.ERR, "follow [phone or email] : Follow user by phone number or email address.")
     }
 
     val you = ApplicationData.getCurrentUser
-    val mode = args(1)
-    val value = args(2)
+    val value = args(1)
 
-    val friend = mode match {
-      case MODE_PHONE => ApplicationData.getUserData.find(u => u.phoneNumber == value)
-      case MODE_EMAIL => ApplicationData.getUserData.find(u => u.email == value)
-      case _ => return CommandResult(CommandResult.ERR, "follow (phone|email) [param] : Follow user by phone number or email address.")
-    }
+    val friend =
+      if (User.isRightPhoneNumber(value)) {
+        ApplicationData.getUserData.find(u => u.phoneNumber == value)
+      } else if (User.isRightEmailAddress(value)) {
+        ApplicationData.getUserData.find(u => u.email == value)
+      } else {
+        return CommandResult(CommandResult.ERR, "follow [phone or email] : Follow user by phone number or email address.")
+      }
 
     friend match {
       case Some(user) => if (!you.getFriends.contains(user)) {
