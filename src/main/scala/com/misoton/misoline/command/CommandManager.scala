@@ -5,7 +5,7 @@ import com.misoton.misoline.log.Log
 object CommandManager {
   val LOG_TAG = "CommandManager"
 
-  val CMD_TEST     = "help"
+  val CMD_HELP     = "help"
   val CMD_CREATE   = "create"
   val CMD_FRIENDS  = "friends"
   val CMD_FOLLOW   = "follow"
@@ -34,7 +34,7 @@ object CommandManager {
 
   private def readCommand(name: String): Command = {
     name match {
-      case CMD_TEST     => HelpCommand
+      case CMD_HELP     => HelpCommand
       case CMD_CREATE   => CreateCommand
       case CMD_FRIENDS  => FriendsListCommand
       case CMD_FOLLOW   => FollowFriendCommand
