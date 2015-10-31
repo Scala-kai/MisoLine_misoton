@@ -24,7 +24,10 @@ case object FollowFriendCommand extends Command {
 
     friend match {
       case Some(user) => if (!you.getFriends.contains(user)) {
-        you.addFriend(user)
+        val success = you.addFriend(user)
+        if (!success) {
+          return CommandResult(CommandResult.ERR, "You can\'t follow yourself.")
+        }
         user.addFriend(you)
         ApplicationData.newTalk(you, user)
         println("Followed * " + user.name + " * ")

@@ -5,8 +5,13 @@ case class User(id: String, name: String, phoneNumber: String, email: String) {
 
   def getFriends = friends
 
-  def addFriend(newFriend: User): Unit = {
+  def addFriend(newFriend: User): Boolean = {
+    if (newFriend.equals(this)) {
+      return false
+    }
+
     friends = newFriend +: friends
+    true
   }
 
   def isRightUser: Boolean = User.isRightPhoneNumber(phoneNumber) && User.isRightEmailAddress(email)
@@ -21,7 +26,7 @@ case class User(id: String, name: String, phoneNumber: String, email: String) {
 object User {
   val NoUser = User("_", "NoUser", "_", "_")
 
-  def isRightPhoneNumber(phoneNumber: String) : Boolean = phoneNumber.filter(x => !(x.isDigit || x.equals('-'))).length == 0
+  def isRightPhoneNumber(phoneNumber: String): Boolean = phoneNumber.filter(x => !(x.isDigit || x.equals('-'))).length == 0
 
-  def isRightEmailAddress(email: String) : Boolean = email != null && email.count(_.equals('@')) == 1
+  def isRightEmailAddress(email: String): Boolean = email != null && email.count(_.equals('@')) == 1
 }
