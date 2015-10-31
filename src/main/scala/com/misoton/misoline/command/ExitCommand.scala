@@ -5,7 +5,7 @@ case object ExitCommand extends Command {
 
   override def run(args: List[String]): CommandResult = {
     if (args.size < ARG_SIZE + 1) {
-      return CommandResult(CommandResult.ERR, "Number of argument error.")
+      return CommandResult(CommandResult.ERR, "exit : Exit from the MisoLine.")
     }
 
     CommandResult(CommandResult.FINISH, "Finish.")

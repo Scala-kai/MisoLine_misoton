@@ -7,7 +7,7 @@ case object UsersCommand extends Command {
 
   override def run(args: List[String]): CommandResult = {
     if (args.size > ARG_SIZE + 1) {
-      return CommandResult(CommandResult.ERR, "Number of args error.")
+      return CommandResult(CommandResult.ERR, "users : Show all users.")
     }
 
     val users = ApplicationData.getUserData

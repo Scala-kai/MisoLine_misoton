@@ -7,7 +7,7 @@ case object CreateCommand extends Command {
 
   override def run(args: List[String]): CommandResult = {
     if (args.size < ARG_SIZE + 1) {
-      return CommandResult(CommandResult.ERR, "Number of argument error.")
+      return CommandResult(CommandResult.ERR, "create [id] [name] [phone] [email]: Create new user as having parameters.")
     }
 
     val id    = args(1)

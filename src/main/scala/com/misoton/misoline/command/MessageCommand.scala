@@ -7,7 +7,7 @@ case object MessageCommand extends Command{
 
   override def run(args: List[String]): CommandResult = {
     if (args.size < ARG_SIZE + 1) {
-      return CommandResult(CommandResult.ERR, "Number of args error.")
+      return CommandResult(CommandResult.ERR, "message [id] [body] : Send message [body] to [to].")
     }
 
     val you = ApplicationData.getCurrentUser

@@ -7,7 +7,7 @@ case object ShowCommand extends Command {
 
   override def run(args: List[String]): CommandResult = {
     if (args.size < ARG_SIZE + 1) {
-      return CommandResult(CommandResult.ERR, "Number of args error.")
+      return CommandResult(CommandResult.ERR, "show [id] : Show [id]'s talk messages.")
     }
 
     val you = ApplicationData.getCurrentUser

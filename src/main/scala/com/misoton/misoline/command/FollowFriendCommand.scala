@@ -10,7 +10,7 @@ case object FollowFriendCommand extends Command {
 
   override def run(args: List[String]): CommandResult = {
     if (args.size < ARG_SIZE + 1) {
-      return CommandResult(CommandResult.ERR, "Number of argument error.")
+      return CommandResult(CommandResult.ERR, "follow (phone|email) [param] : Follow user by phone number or email address.")
     }
 
     val you = ApplicationData.getCurrentUser
@@ -20,7 +20,7 @@ case object FollowFriendCommand extends Command {
     val friend = mode match {
       case MODE_PHONE => ApplicationData.getUserData.find(u => u.phoneNumber == value)
       case MODE_EMAIL => ApplicationData.getUserData.find(u => u.email == value)
-      case _ => return CommandResult(CommandResult.ERR, "format: follow <MODE: phone, email> value.")
+      case _ => return CommandResult(CommandResult.ERR, "follow (phone|email) [param] : Follow user by phone number or email address.")
     }
 
     friend match {

@@ -7,7 +7,7 @@ case object CheckoutCommand extends Command {
 
   override def run(args: List[String]): CommandResult = {
     if (args.size > ARG_SIZE + 1) {
-      return CommandResult(CommandResult.ERR, "Number of args error.")
+      return CommandResult(CommandResult.ERR, "checkout [id] : Checkout User have [id]")
     }
 
     val nextId = args(1)
