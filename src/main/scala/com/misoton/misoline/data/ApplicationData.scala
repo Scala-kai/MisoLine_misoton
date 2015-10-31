@@ -31,7 +31,7 @@ object ApplicationData {
   }
 
   def addUser(user: User): Boolean = {
-    if (!user.isRightUser) return false
+    if (!user.isRightUser || userData.exists(_.equals(user))) return false
 
     userData = user +: userData
     true

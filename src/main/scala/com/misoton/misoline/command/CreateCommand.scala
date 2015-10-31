@@ -19,7 +19,7 @@ case object CreateCommand extends Command {
 
     val isCreated = ApplicationData.addUser(newUser)
     if (!isCreated) {
-      return CommandResult(CommandResult.ERR, "Invalid value with phone number or email address.")
+      return CommandResult(CommandResult.ERR, "User already exists or parameters format is invalid.")
     }
 
     ApplicationData.checkoutUser(newUser)
